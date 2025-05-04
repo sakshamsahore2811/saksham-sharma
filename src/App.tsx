@@ -1,6 +1,6 @@
 
 import cat from "../src/components/cat-modified.png";
-import Footer from "./components/footer.jsx";
+import Footer from "./components/footer.tsx";
 import Navbar from "./components/navbar.tsx";
 import Projects from "./components/projects.tsx";
 import Skills from "./components/skills.tsx";
