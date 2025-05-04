@@ -9,7 +9,7 @@ function Footer() {
     const updateTokyoTime = () => {
       const now = new Date();
       const tokyoOptions = {
-        timeZone: 'Asia/Calcutta',
+       timeZone: 'Asia/Kolkata',
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
