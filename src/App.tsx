@@ -6,11 +6,11 @@ import Projects from "./components/projects.tsx";
 import Skills from "./components/skills.tsx";
 import Playlist from "./components/playlist.tsx";
 import Connect from "./components/connect.tsx";
+import {useState, useEffect} from "react";
 function App() {
   const characterRef = useRef(null);
-  const leftPupilRef = useRef(null);
-  const rightPupilRef = useRef(null);
-  const [isBlinking, setIsBlinking] = useState(false);
+ 
+ 
 
   useEffect(() => {
     const char = characterRef.current as HTMLDivElement;
