@@ -13,7 +13,9 @@ function App() {
  
 
   useEffect(() => {
-    const char = characterRef.current as HTMLDivElement;
+    const char = characterRef.current;
+if (!char) return;
+
     let mouseX = 0, mouseY = 0;
     let currentX = window.innerWidth / 2, currentY = window.innerHeight / 2;
   
