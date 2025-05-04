@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Fox from "../components/fox.png";
 
-function Footer(): JSX.Element {
+function Footer() {
   const [tokyoTime, setTokyoTime] = useState<string>('');
   const [zCount, setZCount] = useState<number>(0);
 
@@ -9,7 +9,7 @@ function Footer(): JSX.Element {
     const updateTokyoTime = () => {
       const now = new Date();
       const tokyoOptions: Intl.DateTimeFormatOptions = {
-        timeZone: 'Asia/Kolkata', // ✅ Correct IANA timezone name
+        timeZone: 'Asia/Kolkata', // Correct IANA timezone
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
@@ -24,7 +24,6 @@ function Footer(): JSX.Element {
     return () => clearInterval(timeInterval);
   }, []);
 
-  // Z Animation Logic
   useEffect(() => {
     const zInterval = setInterval(() => {
       setZCount(prev => (prev + 1) % 4); // Cycle through 0 to 3
