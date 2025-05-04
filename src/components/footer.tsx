@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import Fox from "../components/fox.png";
 
-function Footer() {
-  const [tokyoTime, setTokyoTime] = useState('');
-  const [zCount, setZCount] = useState(0);
+function Footer(): JSX.Element {
+  const [tokyoTime, setTokyoTime] = useState<string>('');
+  const [zCount, setZCount] = useState<number>(0);
 
   useEffect(() => {
     const updateTokyoTime = () => {
       const now = new Date();
-      const tokyoOptions = {
-       timeZone: 'Asia/Kolkata',
+      const tokyoOptions: Intl.DateTimeFormatOptions = {
+        timeZone: 'Asia/Kolkata', // ✅ Correct IANA timezone name
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
@@ -32,7 +32,7 @@ function Footer() {
     return () => clearInterval(zInterval);
   }, []);
 
-  const zStyles = [
+  const zStyles: string[] = [
     "text-md absolute top-[-10px] left-[-10px]",
     "text-sm absolute top-[-20px] left-[-20px]",
     "text-xs absolute top-[-30px] left-[-30px]",
@@ -40,13 +40,15 @@ function Footer() {
 
   return (
     <div className="font-mono bottom-0 flex justify-center items-center gap-2 relative text-center w-full">
-
-       
       <div className="relative w-[30px] h-[30px]">
         <img src={Fox} height={25} width={25} alt="Fox" />
-        {Array.from({ length: zCount }).map((_, i) => (
-          <div key={i} className={`${zStyles[i]} text-gray-500 font-mono`}>Z</div>
-        ))}
+        {Array.from({ length: zCount }).map((_, i) =>
+          zStyles[i] ? (
+            <div key={i} className={`${zStyles[i]} text-gray-500 font-mono`}>
+              Z
+            </div>
+          ) : null
+        )}
       </div>
       <div>
         Time in India - {tokyoTime}
