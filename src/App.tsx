@@ -6,7 +6,7 @@ import Projects from "./components/projects.tsx";
 import Skills from "./components/skills.tsx";
 import Playlist from "./components/playlist.tsx";
 import Connect from "./components/connect.tsx";
-import {useState, useEffect} from "react";
+import {useRef, useEffect} from "react";
 function App() {
   const characterRef = useRef(null);
  
