@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+
 import cat from "../src/components/cat-modified.png";
 import Footer from "./components/footer.jsx";
 import Navbar from "./components/navbar.tsx";
