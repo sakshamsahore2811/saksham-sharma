@@ -15,55 +15,32 @@ function App() {
 
   useEffect(() => {
     const char = characterRef.current;
-if (!char) return;
+    if (!char) return;
 
     let mouseX = 0, mouseY = 0;
     let currentX = window.innerWidth / 2, currentY = window.innerHeight / 2;
-  
+
     const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
-  
+
     const animate = () => {
-      currentX = lerp(currentX, mouseX, 0.01); // adjust 0.05 to make it slower or faster
+      currentX = lerp(currentX, mouseX, 0.01);
       currentY = lerp(currentY, mouseY, 0.01);
       if (char) {
         char.style.transform = `translate(${currentX}px, ${currentY}px)`;
       }
       requestAnimationFrame(animate);
     };
-  
+
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX - (char?.offsetWidth || 0) / 2;
-      mouseY = e.clientY - (char?.offsetHeight || 0) / 2;
-      // updatePupils(e);
+      mouseX = e.clientX - (char.offsetWidth || 0) / 2;
+      mouseY = e.clientY - (char.offsetHeight || 0) / 2;
     };
-  
-    // const updatePupils = (e: MouseEvent) => {
-    //   const movePupil = (eye: HTMLDivElement) => {
-    //     const rect = eye.getBoundingClientRect();
-    //     const dx = e.clientX - (rect.left + rect.width / 2);
-    //     const dy = e.clientY - (rect.top + rect.height / 2);
-    //     const angle = Math.atan2(dy, dx);
-    //     const radius = 4;
-  
-    //     const pupil = eye.querySelector(".pupil") as HTMLDivElement;
-    //     pupil.style.transform = `translate(${Math.cos(angle) * radius}px, ${Math.sin(angle) * radius}px)`;
-    //   };
-  
-    //   if (leftPupilRef.current) movePupil(leftPupilRef.current);
-    //   if (rightPupilRef.current) movePupil(rightPupilRef.current);
-    // };
-  
+
     animate();
     document.addEventListener("mousemove", handleMouseMove);
-  
-    // const blinkInterval = setInterval(() => {
-    //   setIsBlinking(true);
-    //   setTimeout(() => setIsBlinking(false), 200);
-    // }, 2000);
-  
+
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-      // clearInterval(blinkInterval);
     };
   }, []);
   
