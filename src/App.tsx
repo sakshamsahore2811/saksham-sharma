@@ -8,7 +8,8 @@ import Playlist from "./components/playlist.tsx";
 import Connect from "./components/connect.tsx";
 import {useRef, useEffect} from "react";
 function App() {
-  const characterRef = useRef(null);
+   const characterRef = useRef<HTMLDivElement>(null);
+
  
  
 
