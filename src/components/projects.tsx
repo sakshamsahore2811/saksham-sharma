@@ -32,7 +32,7 @@ function Projects(){
                 <br/>
                 Why - Acts like a PopUps alternative to redirect users, promote products or provide discount codes.
                 <br/>
-                Status - getting published on shopify app store
+                Check it out - <a href="https://apps.shopify.com/cursor-chaser-pro" target="_blank">https://apps.shopify.com/cursor-chaser-pro</a>
             </div>
             <br/>
             <div>
